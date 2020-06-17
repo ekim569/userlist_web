@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html >
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>게시판</title>
+</head>
+<body>
+    <h1>Serner Side javescript</h1>
+    <ol>
+        <% for(i=0; i<topics.length;i++) {%>
+        <li><%= topics[i].title %> &nbsp;:&nbsp; <%= topics[i].description %></li>
+        <% } %>
+    </ol>
+    <article> 
+        <form action="/topic/add" method ="POST">
+            <p><input type="text" name ="title"></p>
+            <p><textarea type="text" name="description"></textarea></p>
+            <p><input type="text" name ="author"></p>
+            <p><input type="submit"></p>
+        </form>
+    </article>
+</body>
+</html>

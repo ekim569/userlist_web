@@ -2,6 +2,7 @@ var express = require('express')
 var path = require('path')
 var mysqal = require('mysql')
 var app = express()
+var apiRouter =  require('./routs/api_router')
 
 sql_config = {
     host:'localhost',
@@ -9,15 +10,17 @@ sql_config = {
     password: '1234',
     database:'o2',
 }
+
 var db = mysqal.createConnection(sql_config)
+
+
 db.connect()
-
-
 app.set('views', path.join(__dirname, '/views'))
 app.set('view engine', 'ejs')
 
 app.use(express.urlencoded({extended:false}))
 app.use(express.json())
+app.use('/', apiRouter)
 
 app.get('/hello', (request, response)=>{
     var name = "hansol"
@@ -25,7 +28,7 @@ app.get('/hello', (request, response)=>{
     //console.log(request)
     response.render('hello', {data:name})
 })
-app.get('/data', (req, res)=>{
+/*app.get('/data', (req, res)=>{
     var sql = 'SELECT *  FROM topic'
     db.query(sql , (err , result)=>{
         if(err) {
@@ -38,7 +41,7 @@ app.get('/data', (req, res)=>{
         
     })
 })
-
+*/
 var port = 8000;
 
 app.listen(port, ()=>{
