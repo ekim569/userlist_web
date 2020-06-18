@@ -15,10 +15,35 @@
 </head>
 <body>
     <h1><a href="/topic"> Server Side javescript</a></h1>
+    <table class="table table-dark">
+        <thead>
+          <tr>
+            <th>ID</th>
+            <th>TITLE</th>
+            <th>DESCRIPTION</th>
+            <th>AUTHOR</th>
+            <th>DELETE</th>
+          </tr>
+        </thead>
+        <tbody>
+            <% for(i=0; i<topics.length;i++) {%>
+          <tr>
+            <td><%= topics[i].id%></td>
+            <td><a href="/topic/<%= topics[i].id %>"><%= topics[i].title%></a></td>
+            <td><%= topics[i].description%></td>
+            <td><%= topics[i].author%></td>
+            <td>Delete</td>
+          </tr>
+          <% } %>
+        </tbody>
+      </table>
+
     <ol>
         <% for(i=0; i<topics.length;i++) {%>
         <a href="/topic/<%= topics[i].id %>">
-        <li><%= topics[i].title %></a> &nbsp;:&nbsp;</a> <%= topics[i].description %></li>
+        <li><%= topics[i].title %></a> &nbsp;:&nbsp;</a> <%= topics[i].description %>
+            <a href="/topic/delete"><button type="button" class="btn btn-danger"  >삭제</button></a>
+        </li>
         
         <% } %>
     </ol>
@@ -26,7 +51,7 @@
     <h2><%= topic.title %></h2>
     <p><%= topic.description %></p>
     <p>by <%= topic.author %></p><br>
-    <button type="button" class="btn btn-danger" onsubmit="return confirm(' 삭제하시겠습니까? ')" >삭제</button>
+    
     <a href="/topic/edit/<%= topic.id %>"><button type="button" class="btn btn-success" >수정</button></a>
     
     <% } else { %>
