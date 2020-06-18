@@ -32,7 +32,7 @@
             <td><a href="/topic/<%= topics[i].id %>"><%= topics[i].title%></a></td>
             <td><%= topics[i].description%></td>
             <td><%= topics[i].author%></td>
-            <td><a href="/topic/delete/<%= topic.id %>" ><button type="button" class="btn btn-danger" onclick ="return deleteConfirm()" > 삭제</button></a> </td>
+            <td><a href="/topic/delete/<%= topics[i].id %>" onclick ="return deleteConfirm()" ><button type="button" class="btn btn-danger" > 삭제</button></a> </td>
           </tr>
           <% } %>
         </tbody>
