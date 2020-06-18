@@ -6,7 +6,7 @@
     <title>게시판</title>
 </head>
 <body>
-    <h1>Serner Side javescript</h1>
+    <h1>Server Side javescript</h1>
     <ol>
         <% for(i=0; i<topics.length;i++) {%>
         <li><%= topics[i].title %> &nbsp;:&nbsp; <%= topics[i].description %></li>
@@ -19,6 +19,7 @@
             <p><input type="text" name ="author" placeholder="글쓴이를 적어주세요"></p>
             <p><input type="submit"></p>
         </form>
+        <a href="/topic"><button type="button" class="btn btn-danger" >홈으로</button></a>
     </article>
 </body>
 </html>

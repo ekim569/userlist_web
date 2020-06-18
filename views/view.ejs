@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
+    <!-- jQuery library -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <!-- Popper JS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <!-- Latest compiled JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
+    <title>Server Side Javascript</title>
+</head>
+<body>
+    <h1><a href="/topic"> Server Side javescript</a></h1>
+    <ol>
+        <% for(i=0; i<topics.length;i++) {%>
+        <a href="/topic/<%= topics[i].id %>">
+        <li><%= topics[i].title %></a> &nbsp;:&nbsp;</a> <%= topics[i].description %></li>
+        
+        <% } %>
+    </ol>
+    <% if(topic) { %>
+    <h2><%= topic.title %></h2>
+    <p><%= topic.description %></p>
+    <p>by <% topic.author %></p><br>
+    <a href="/topic/add"><button type="button" class="btn btn-danger" >삭제</button></a>
+    <a href="/topic/add"><button type="button" class="btn btn-success" >수정</button></a>
+    
+    <% } else { %>
+    <h2>welcome</h2>
+    This is Server Side JavaScript Tutorial <br>
+    <a href="/topic/add"><button type="button" class="btn btn-primary" >추가</button></a>
+    <% } %>
+   
+    
+</body>
+</html>
