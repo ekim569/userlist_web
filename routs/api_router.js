@@ -59,6 +59,12 @@ router.get('/topic/edit/:id', (req, res)=>{
 
 
 })
+router.get('/topic/delete/:delid', (req, res)=>{
+    var delid = req.params.delid
+    console.log(delid)
+    res.send("delete success")
+})
+
 router.post('/topic/:id/edit', (req, res)=>{
     var id = req.params.id
     var title = req.body.title

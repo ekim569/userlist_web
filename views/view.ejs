@@ -32,34 +32,29 @@
             <td><a href="/topic/<%= topics[i].id %>"><%= topics[i].title%></a></td>
             <td><%= topics[i].description%></td>
             <td><%= topics[i].author%></td>
-            <td>Delete</td>
+            <td><a href="/topic/delete/<%= topic.id %>" ><button type="button" class="btn btn-danger" onclick ="return deleteConfirm()" > 삭제</button></a> </td>
           </tr>
           <% } %>
         </tbody>
       </table>
-
-    <ol>
-        <% for(i=0; i<topics.length;i++) {%>
-        <a href="/topic/<%= topics[i].id %>">
-        <li><%= topics[i].title %></a> &nbsp;:&nbsp;</a> <%= topics[i].description %>
-            <a href="/topic/delete"><button type="button" class="btn btn-danger"  >삭제</button></a>
-        </li>
-        
-        <% } %>
-    </ol>
-    <% if(topic) { %>
-    <h2><%= topic.title %></h2>
+      <% if(topic) {  %>
+        <div class="card" >
+            <div class="card-body"><%= topic.title %></div>
     <p><%= topic.description %></p>
-    <p>by <%= topic.author %></p><br>
-    
-    <a href="/topic/edit/<%= topic.id %>"><button type="button" class="btn btn-success" >수정</button></a>
-    
-    <% } else { %>
-    <h2>welcome</h2>
-    This is Server Side JavaScript Tutorial <br>
-    <a href="/topic/add"><button type="button" class="btn btn-primary" >추가</button></a>
+    <p>by <%= topic.author %></p> <br>
+    <a href="/topic/edit/<%= topic.id %>"><button type="button" class="btn btn-success">수정</button></a>
+    </div>
+    <% } else {  %>
+        <div class="card" >
+            <div class="card-body">Welcome</div>
+        This is Server Side JavaScript Tutorial <br>
+        <a href="/topic/add"><button type="button" class="btn btn-primary">추가</button></a>
+    </div>
     <% } %>
-   
-    
+    <script>
+        function deleteConfirm(){
+            return confirm("정말 삭제하시겠습니까?")
+        }
+    </script>
 </body>
 </html>
