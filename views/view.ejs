@@ -25,9 +25,9 @@
     <% if(topic) { %>
     <h2><%= topic.title %></h2>
     <p><%= topic.description %></p>
-    <p>by <% topic.author %></p><br>
-    <a href="/topic/add"><button type="button" class="btn btn-danger" >삭제</button></a>
-    <a href="/topic/add"><button type="button" class="btn btn-success" >수정</button></a>
+    <p>by <%= topic.author %></p><br>
+    <a href="/topic/delete"><button type="button" class="btn btn-danger" >삭제</button></a>
+    <a href="/topic/edit/<%= topic.id %>"><button type="button" class="btn btn-success" >수정</button></a>
     
     <% } else { %>
     <h2>welcome</h2>

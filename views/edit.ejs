@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <!-- Latest compiled and minified CSS -->
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
+        <!-- jQuery library -->
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+        <!-- Popper JS -->
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+        <!-- Latest compiled JavaScript -->
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
+    <title>Server Side Nodejs</title>
+</head>
+<body>
+    <article>
+        <form action="/topic/add" method="POST" >
+            <div class="form-group">
+            <p><input  class="form-control" type="text" name="title" value="<%= topic.title %>"  required></p>
+            <p><textarea  class="form-control" type="text" name="description"  cols="100" required><%= topic.description %></textarea></p>
+            <p><input  class="form-control" type="text" name="author" value="<%= topic.author %>" required></p>
+            <p><button class="form-control btn-success" type="button" >수정</button></p>
+            </form>
+            <form action="/topic/<%= topic.id %>">
+                <p><input  class="form-control btn-danger" type="submit" value="취소"></p>
+            </form>
+        <a href="/topic"><button type="button" class="btn btn-primary">홈으로</button></a>
+    </article>
+</body>
+</html>
